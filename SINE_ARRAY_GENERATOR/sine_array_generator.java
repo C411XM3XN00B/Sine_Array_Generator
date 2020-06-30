@@ -7,14 +7,12 @@ public class sine_array_generator {
 
     public static void main(String[] args) {
         
-        
-
         int arrayLength = 8;        //should be divisible by 4 to get peaks
-        int maxValue = 1023;        //2^(number of bits the DAC has) - 1 
+        int maxValue = 255;        //2^(number of bits the DAC has) - 1 
 
 
         int valOffset = (maxValue + 1) / 2;
-         int valAmplitude = (valOffset - 1);
+        int valAmplitude = (valOffset - 1);
 
         int val = 0;
 
@@ -27,10 +25,5 @@ public class sine_array_generator {
             System.out.print(val);
           }
         System.out.println("};");
-
-
-
-
-
     }
 }
