@@ -1,7 +1,9 @@
-int arrayLength = 255;
-int maxValue = 1023;
+int arrayLength = 64;   //should be divisible by 4 to get peaks
+int maxValue = 255;     //2^(number of bits the DAC has) - 1 
+
+
 int valOffset = (maxValue + 1) / 2;
-int valAmplitude = valOffset;
+int valAmplitude = (valOffset - 1);
 
 int val = 0;
 
@@ -9,10 +11,10 @@ void setup() {
   delay(300);
   Serial.begin(38400);
   Serial.println();
-  Serial.print("byte hiResValues[] = {");
+  Serial.print("byte sineValues[] = {");
   val = valOffset;
   Serial.print(val);
-  for (int i = 1; i < (arrayLength + 1); i++) {
+  for (int i = 1; i < arrayLength; i++) {
     Serial.print(", ");
     val = (valOffset + (valAmplitude * sin((2* PI * i)/arrayLength)));
     Serial.print(val);  
